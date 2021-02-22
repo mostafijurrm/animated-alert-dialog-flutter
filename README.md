@@ -1,7 +1,6 @@
-# animated-alert-dialog-flutter
 
 
-Widget _openCallingDialog(var data) {
+  	 Widget _openCallingDialog(var data) {
     var json = jsonDecode(data);
     var clientData = json['client_details'];
     var promoCode = json['promo_code'];
@@ -61,7 +60,6 @@ Widget _openCallingDialog(var data) {
                         ],
                       ),
                     ),
-
                     Container(
                       margin: EdgeInsets.only(top: 30),
                       child: CircleAvatar(
@@ -87,7 +85,22 @@ Widget _openCallingDialog(var data) {
                           //accept button
                           InkWell(
                             onTap: () {
-                              
+                              setState(() {
+                                /*var photograher_lat =
+                                    _currentLocation.latitude.toString();
+                                var photograher_long =
+                                    _currentLocation.latitude.toString();
+                                //photographer clicked for call receive
+                                socket.emit("callAccepted", [
+                                  this.widget.user.token,
+                                  //callingData.clientToken,
+                                  photograher_lat,
+                                  photograher_long
+                                ]);*/
+                                Navigator.pop(context);
+                                assetsAudioPlayer.stop();
+                                goToAccept(clientData);
+                              });
                             },
                             child: CircleAvatar(
                               radius: 30,
@@ -104,7 +117,14 @@ Widget _openCallingDialog(var data) {
                           //reject button
                           InkWell(
                             onTap: () {
-                              
+                              /*socket.emit("callToPhotographer", [
+                                callingData.clientToken,
+                                callingData.lat,
+                                callingData.long
+                              ]);
+                              */
+                              Navigator.pop(context);
+                              assetsAudioPlayer.stop();
                             },
                             child: CircleAvatar(
                               radius: 30,
@@ -132,4 +152,4 @@ Widget _openCallingDialog(var data) {
             child: child,
           );
         });
-  }
+  	}
