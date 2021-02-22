@@ -11,17 +11,25 @@
             type: MaterialType.transparency,
             child: Align(
               alignment: Alignment.center,
-              child: Container(
-                height: 480,
-                margin: EdgeInsets.only(bottom: 12, left: 15, right: 15),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: Dimensions.marginSize,
+                  right: Dimensions.marginSize,
                 ),
-                child: Column(
-                  children: [
-                    Text('hello')
-                  ],
+                child: Container(
+                  height: 300,
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.only(bottom: 12, left: 15, right: 15),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('hello')
+                    ],
+                  ),
                 ),
               ),
             ),
